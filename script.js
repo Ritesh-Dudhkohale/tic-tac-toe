@@ -1,20 +1,20 @@
+let chance = 'X';
 
-let chance = 'X'
 function getNumber(num) {
-    if (chance == 'X') {
-        document.getElementsByTagName("button")[num].innerHTML = `<img src="Images/x.png" class="player-sign">`
-        document.getElementsByTagName("button")[num].disabled = true
-        winComb[num] = chance
-        getWinner()
-        chance = 'O';
-    } else {
-        document.getElementsByTagName("button")[num].innerHTML = `<img src="Images/o.png" class="player-sign">`
-        document.getElementsByTagName("button")[num].disabled = true
-        winComb[num] = chance
-        getWinner()
-        chance = 'X';
+    getWinner();
+
+    if (chance === 'X' || chance === 'O') {
+        const buttons = document.getElementsByTagName("button");
+        
+        buttons[num].innerHTML = `<img src="Images/${chance.toLowerCase()}.png" class="player-sign">`;
+        buttons[num].disabled = true;
+        winComb[num] = chance;
+
+        chance = (chance === 'X') ? 'O' : 'X';
     }
 }
+
+
 let winComb = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
 let winner = false
 function getWinner() {
@@ -28,7 +28,7 @@ function getWinner() {
         const [a, b, c] = pattern
 
         if (winComb[a] === winComb[b] && winComb[b] === winComb[c]) {
-            console.log("success");
+            console.log("success",pattern);
             winner = true
         }
     }

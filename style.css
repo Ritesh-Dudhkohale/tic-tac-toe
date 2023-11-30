@@ -5,7 +5,7 @@
 }
 
 .container {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background: #FFE3BB;
     display: flex;
@@ -73,3 +73,4 @@ td>button {
     height: 45px;
     margin-left: 20px;
 }
+
